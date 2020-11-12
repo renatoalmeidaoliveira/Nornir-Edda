@@ -1,0 +1,11 @@
+{%- for interface in interfaces -%}
+{%- if interface.description is defined %}
+/interface set comment="{{interface.description}}" [find name={{interface.name }}]
+{%- endif %}
+{%- if (interface.ipv4 is defined ) %}
+{%- if (interface.ipv4.address is defined ) %}
+/ip address remove [find interface={{ interface.name }}]
+{%- for address in interface.ipv4.address %}
+/ip address add address {{ address.ip  }}/{{ address.prefix_length }} interface={{ interface.name }}
+{%- endfor %}{%- endif %}{%- endif %}
+{%- endfor -%}

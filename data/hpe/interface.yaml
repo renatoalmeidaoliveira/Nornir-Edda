@@ -1,0 +1,8 @@
+---
+interfaces:
+  -  name: "GigabitEthernet2/0"
+     description: "Link MK-IOS"
+     ipv4:
+       address:
+         - ip: "10.0.0.1"
+           prefix_length: 30

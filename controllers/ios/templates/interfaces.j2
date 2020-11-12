@@ -1,0 +1,14 @@
+{%- for interface in interfaces -%}
+interface {{ interface.name }}
+{%- if interface.description is defined %}
+ description {{ interface.description}}
+{%- endif %}
+{%- if (interface.ipv4 is defined ) %}
+{%- if (interface.ipv4.address is defined ) -%}
+{%- for address in interface.ipv4.address %}
+ ip address {{ address.ip  }} {{ address.prefix_length | cidr_to_netmask}}
+{%- endfor %}{%- endif %}{%- endif %}
+{%- if interface.enabled == True %}
+ no shutdown{% endif %}{%- if interface.enabled == False %}
+ shutdown{%- endif %}
+{%- endfor -%}

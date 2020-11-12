@@ -1,0 +1,18 @@
+cisco:
+    hostname: '192.168.237.157'
+    port: 22
+    platform: 'ios'
+    groups:
+        - 'ios'
+mikro:
+    hostname: '192.168.237.134'
+    port: 22
+    platform: 'mikrotik_routeros'
+    groups:
+        - 'routeros'
+hpe:
+    hostname: '192.168.237.144'
+    port: 22
+    platform: 'hp_comware'
+    groups:
+        - 'hpe'
