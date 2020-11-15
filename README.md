@@ -56,8 +56,8 @@ For testing this repository follow the steps bellow:
 
 ## Extending the models
 If you want to deploy different models, follow the steps bellow:
-* Create a concrete class of the Model abstract model that will receive the data and output in some standard form
-* Implement the getModel() method that MUST be the same name of the Jinja2 template
+* Create a concrete class of the Model abstract class that will receive the data and output in some standard form
+* Implement the getModel() method that MUST return a string with same value as the Jinja2 template name.
 * Implement the getModelData() method that will return the data used by the Jinja2 template
 * For each vendor create the appropriate Jinja2 template with the same name returned by getModel(), i.e, f”{getModel()}.j2}” 
 * Edit main.py to read the data model
