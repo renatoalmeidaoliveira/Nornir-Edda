@@ -1,3 +1,4 @@
+[![published](https://static.production.devnetcloud.com/codeexchange/assets/images/devnet-published.svg)](https://developer.cisco.com/codeexchange/github/repo/renatoalmeidaoliveira/Nornir-Edda) 
 # Nornir-Edda
 
 This repository implements the architecture proposed on [A Network Programmability Essay](https://www.linkedin.com/pulse/network-programmability-essay-renato-oliveira/). Which aims the following problems:
