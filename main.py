@@ -26,7 +26,7 @@ def loadData(task: Task) -> Result:
         ifaces.append(iface)
     interfaces = InterfacesModel(interfaces=ifaces)
     controller = vendorFabric(task=task, model=interfaces).controller
-    return controller.testConfig()
+    return controller.deployConfig()
 
 
 
