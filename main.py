@@ -1,4 +1,5 @@
 from nornir import InitNornir
+import os
 import pprint
 from nornir.core.task import Task, Result
 from nornir_utils.plugins.functions import print_result
@@ -8,10 +9,11 @@ from models.interfaces import InterfacesModel
 from controllers.Fabric import vendorFabric
 
 def loadData(task: Task) -> Result:
+    cwd = os.getcwd()
     data = task.run(
         name= f"{task.host.name} dataModel",
         task= load_yaml,
-        file=f"/home/renato/nornir/data/{task.host.name}/interface.yaml"
+        file=f"{cwd}/data/{task.host.name}/interface.yaml"
     )
     interfaces = data.result
     ifaces = []
