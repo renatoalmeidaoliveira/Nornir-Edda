@@ -1,4 +1,4 @@
-{%- for interface in interfaces -%}
+{% for interface in interfaces %}
 interface {{ interface.name }}
 {%- if interface.description is defined %}
  description {{ interface.description}}
