@@ -5,11 +5,12 @@ import ipaddress
 
 class InterfaceModel(Model):
 
-    def __init__(self, name=None, description=None, ipv4=None):
+    def __init__(self, name=None, description=None, ipv4=None, enabled=False):
         self.model = 'ietf-interface'
         self.name = name
         self.description = description
         self.ipv4 = ipv4
+        self.enabled = enabled
         self._lintModel()
 
     def _lintModel(self):
@@ -35,6 +36,7 @@ class InterfaceModel(Model):
     def getModelData(self):
         model = {}
         model['name'] = self.name
+        model['enabled'] = self.enabled
         if(self.description != None):
             model['description'] = self.description
         if(len(self.ipv4) != 0):

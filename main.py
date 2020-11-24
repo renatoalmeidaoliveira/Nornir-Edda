@@ -18,10 +18,15 @@ def loadData(task: Task) -> Result:
     interfaces = data.result
     ifaces = []
     for interface in interfaces['interfaces']:
-        ifaces.append(InterfaceModel(name=interface['name'], description=interface['description'], ipv4=interface['ipv4']['address']))
+        iface = InterfaceModel(
+                               name=interface['name'],
+                               description=interface['description'],
+                               ipv4=interface['ipv4']['address'],
+                               enabled=interface['enabled'] if 'enabled' in interface else False)
+        ifaces.append(iface)
     interfaces = InterfacesModel(interfaces=ifaces)
     controller = vendorFabric(task=task, model=interfaces).controller
-    return controller.deployConfig()
+    return controller.testConfig()
 
 
 
