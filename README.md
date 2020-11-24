@@ -55,6 +55,9 @@ For testing this repository follow the steps bellow:
 * For each host create an interfaces.yaml with the desired configuration
 * Run main.py
 
+## Demonstration
+[![Nornir-Edda Demo](http://img.youtube.com/vi/Q5N5h8Wj_Xc/0.jpg)](http://www.youtube.com/watch?v=Q5N5h8Wj_Xc "Nornir-Edda Demo")
+
 ## Extending the models
 If you want to deploy different models, follow the steps bellow:
 * Create a concrete class of the Model abstract class that will receive the data and output in some standard form
