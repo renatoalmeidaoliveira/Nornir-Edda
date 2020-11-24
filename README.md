@@ -1,7 +1,7 @@
 [![published](https://static.production.devnetcloud.com/codeexchange/assets/images/devnet-published.svg)](https://developer.cisco.com/codeexchange/github/repo/renatoalmeidaoliveira/Nornir-Edda) 
 # Nornir-Edda
 
-This repository implements the architecture proposed on [A Network Programmability Essay](https://www.linkedin.com/pulse/network-programmability-essay-renato-oliveira/). Which aims the following problems:
+This repository implements the architecture proposed on [A Network Programmability Essay](https://blog.renatooliveira.eng.br/a-network-programmability-essay). Which aims the following problems:
 * Abstraction of multiple vendors syntax in a single data model;
 * Decoupling of input data and configuration logic;
 * Single entry point for the configuration deploy;
