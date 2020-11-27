@@ -1,18 +1,6 @@
 cisco:
-    hostname: '192.168.237.130'
+    hostname: '192.168.237.132'
     port: 22
     platform: 'ios'
     groups:
         - 'ios'
-mikro:
-    hostname: '192.168.237.128'
-    port: 22
-    platform: 'mikrotik_routeros'
-    groups:
-        - 'routeros'
-hpe:
-    hostname: '192.168.237.131'
-    port: 22
-    platform: 'hp_comware'
-    groups:
-        - 'hpe'
