@@ -22,7 +22,10 @@ class iosController(vendorController):
         self.model = model
 
     def _generateConfig(self):
-        env = Environment(loader=PackageLoader('controllers.ios', 'templates'))
+        env = Environment(
+            loader=PackageLoader('controllers.ios', 'templates'),
+            line_statement_prefix='#'
+        )
         env.filters['cidr_to_netmask'] = cidr_to_netmask
         templ = env.get_template(f"{self.model.getModel()}.j2")
         config = templ.render(self.model.getModelData())

@@ -1,8 +1,16 @@
 ---
 interfaces:
   -  name: "GigabitEthernet2/0"
-     description: "Link MK-IOS"
+     description: "hpe - cisco"
+     enabled: True
      ipv4:
        address:
-         - ip: "10.0.0.1"
+         - ip: "10.0.0.10"
+           prefix_length: 30
+  -  name: "GigabitEthernet3/0"
+     description: "hpe - mikro"
+     enabled: True
+     ipv4:
+       address:
+         - ip: "10.0.0.6"
            prefix_length: 30

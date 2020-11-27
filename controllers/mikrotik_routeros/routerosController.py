@@ -11,7 +11,10 @@ class routerosController(vendorController):
         self.model = model
 
     def _generateConfig(self):
-        env = Environment(loader=PackageLoader('controllers.mikrotik_routeros', 'templates'))
+        env = Environment(
+                loader=PackageLoader('controllers.mikrotik_routeros', 'templates'),
+                line_statement_prefix='#'
+        )
         templ = env.get_template(f"{self.model.getModel()}.j2")
         config = templ.render(self.model.getModelData())
         configs = config.split('\n')

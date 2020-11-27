@@ -21,7 +21,10 @@ class hpController(vendorController):
         self.model = model
 
     def _generateConfig(self):
-        env = Environment(loader=PackageLoader('controllers.hp_comware', 'templates'))
+        env = Environment(
+            loader=PackageLoader('controllers.hp_comware', 'templates'),
+            line_statement_prefix='#'
+        )
         env.filters['cidr_to_netmask'] = cidr_to_netmask
         templ = env.get_template(f"{self.model.getModel()}.j2")
         config = templ.render(self.model.getModelData())

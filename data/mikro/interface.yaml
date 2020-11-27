@@ -1,16 +1,16 @@
 ---
 interfaces:
   -  name: "ether2"
-     description: "Link MK-IOS"
+     description: "mikro - cisco"
      ipv4:
        address:
-         - ip: "10.0.0.1"
+         - ip: "10.0.0.2"
            prefix_length: 30
   -  name: "ether3"
-     description: "Link MK-IOS"
+     description: "mikro - hpe"
      ipv4:
        address:
-         - ip: "10.0.0.6"
+         - ip: "10.0.0.5"
            prefix_length: 30
 
 
