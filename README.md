@@ -1,7 +1,7 @@
 [![published](https://static.production.devnetcloud.com/codeexchange/assets/images/devnet-published.svg)](https://developer.cisco.com/codeexchange/github/repo/renatoalmeidaoliveira/Nornir-Edda) 
 # Nornir-Edda
 
-This repository implements the architecture proposed on [A Network Programmability Essay](https://www.linkedin.com/pulse/network-programmability-essay-renato-oliveira/). Which aims the following problems:
+This repository implements the architecture proposed on [A Network Programmability Essay](https://blog.renatooliveira.eng.br/a-network-programmability-essay). Which aims the following problems:
 * Abstraction of multiple vendors syntax in a single data model;
 * Decoupling of input data and configuration logic;
 * Single entry point for the configuration deploy;
@@ -54,6 +54,9 @@ For testing this repository follow the steps bellow:
 * Create one folder for each host in your hosts.yml, in the data folder, where the folder name is the hostname, e.q ./data/hostname/
 * For each host create an interfaces.yaml with the desired configuration
 * Run main.py
+
+## Demonstration
+[![Nornir-Edda Demo](http://img.youtube.com/vi/Q5N5h8Wj_Xc/0.jpg)](http://www.youtube.com/watch?v=Q5N5h8Wj_Xc "Nornir-Edda Demo")
 
 ## Extending the models
 If you want to deploy different models, follow the steps bellow:
