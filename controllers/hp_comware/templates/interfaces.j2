@@ -10,6 +10,22 @@ interface {{ interface.name }}
       # endfor 
     # endif 
   # endif 
+  # if interface.switched_vlan is defined :
+    # if interface.switched_vlan.interface_mode == 'TRUNK':
+      # if interface.switched_vlan.native_vlan is defined :
+ switchport trunk native vlan {{ interface.switched_vlan.native_vlan }}
+      # endif
+      # if interface.switched_vlan.trunk_vlans is defined :
+        # for vlan in interface.switched_vlan.trunk_vlans :
+ switchport trunk allowed vlan add {{ vlan }}
+        #endfor
+      # endif
+    # endif
+    # if interface.switched_vlan.interface_mode == 'ACCESS':
+    # if interface.switched_vlan.access_vlan is defined :
+ switchport access vlan {{ interface.switched_vlan.access_vlan }}
+    #endif
+    # endif
   # if interface.enabled == True: 
  undo shutdown
   # endif 
