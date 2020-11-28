@@ -1,19 +1,36 @@
-# for interface in interfaces :
+# for interface in interfaces:
 interface {{ interface.name }}
-# if interface.description is defined :
+  # if interface.description is defined: 
  description {{ interface.description}}
-# endif 
-# if (interface.ipv4 is defined ):
-# if (interface.ipv4.address is defined ):
-# for address in interface.ipv4.address :
+  # endif 
+  # if (interface.ipv4 is defined ): 
+    # if (interface.ipv4.address is defined ): 
+      # for address in interface.ipv4.address: 
  ip address {{ address.ip  }} {{ address.prefix_length | cidr_to_netmask}}
-# endfor
-# endif 
-# endif 
-# if interface.enabled == True :
- no shutdown
-# endif 
-# if interface.enabled == False :
+      # endfor 
+    # endif 
+  # endif 
+  # if interface.switched_vlan is defined :
+    # if interface.switched_vlan.interface_mode == 'TRUNK':
+      # if interface.switched_vlan.native_vlan is defined :
+ switchport trunk native vlan {{ interface.switched_vlan.native_vlan }}
+      # endif
+      # if interface.switched_vlan.trunk_vlans is defined :
+        # for vlan in interface.switched_vlan.trunk_vlans :
+ switchport trunk allowed vlan add {{ vlan }}
+        #endfor
+      # endif
+    # endif
+    # if interface.switched_vlan.interface_mode == 'ACCESS':
+      # if interface.switched_vlan.access_vlan is defined :
+ switchport access vlan {{ interface.switched_vlan.access_vlan }}
+      # endif
+    # endif
+  # endif
+  # if interface.enabled == True: 
+ undo shutdown
+  # endif 
+  # if interface.enabled == False: 
  shutdown
-# endif 
+  # endif 
 # endfor 
