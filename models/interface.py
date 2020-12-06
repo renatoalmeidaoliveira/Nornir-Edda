@@ -33,9 +33,9 @@ class InterfaceModel(Model):
                     if((ip['prefix_length'] > 32) or (ip['prefix_length'] < 0)):
                         raise ModelSyntaxError("Invalid prefix_length")
                     ip_address = ipaddress.ip_interface(f"{ip['ip']}/{ip['prefix_length']}")
-                    if(ip_address.ip == ip_address.network.network_address):
+                    if((ip_address.ip == ip_address.network.network_address) and ip['prefix_length'] != 32 ):
                         raise ModelSyntaxError("Invalid IP for network mask")
-                    if(ip_address.ip == ip_address.network.broadcast_address):
+                    if((ip_address.ip == ip_address.network.broadcast_address)  and ip['prefix_length'] != 32 ):
                         raise ModelSyntaxError("Invalid IP for network mask")
 
     def getModel(self):
