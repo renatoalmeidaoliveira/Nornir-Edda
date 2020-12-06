@@ -12,7 +12,10 @@ class InterfaceModel(Model):
         self.description = description
         self.ipv4 = ipv4
         self.enabled = enabled
-        self.switched_vlan = SwitchedVlanModel(**switched_vlan)
+        if(switched_vlan is not None):
+            self.switched_vlan = SwitchedVlanModel(**switched_vlan)
+        else:
+            self.switched_vlan = None
         self._lintModel()
 
     def _lintModel(self):
